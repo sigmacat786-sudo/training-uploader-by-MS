@@ -417,3 +417,105 @@ async def send_vid(bot: Client, m: Message,cc,filename,thumb,name,prog):
 
     os.remove(f"{filename}.jpg")
     await reply.delete (True)
+
+
+# ══════════════════════════════════════════════════════════════════════════
+#  🚀 HYPER-SPEED ADD-ON  (new code only — nothing above this line changed)
+# ══════════════════════════════════════════════════════════════════════════
+#  download_video_fast()  -> drop-in, faster replacement for download_video()
+#  send_vid_fast()        -> drop-in, faster replacement for send_vid()
+#
+#  Both are 100% additive: if the new speed-up modules aren't available, or
+#  anything inside them fails for any reason, execution transparently falls
+#  back to the ORIGINAL, unmodified functions above. The bot's behaviour can
+#  never regress because of this section.
+# ══════════════════════════════════════════════════════════════════════════
+try:
+    from fast_download import smart_download_video
+    _FAST_DOWNLOAD_AVAILABLE = True
+except Exception as _fd_err:
+    logging.warning(f"fast_download module unavailable, download speed boost disabled: {_fd_err}")
+    _FAST_DOWNLOAD_AVAILABLE = False
+
+try:
+    from fast_upload import turbo_send_video
+    _FAST_UPLOAD_AVAILABLE = True
+except Exception as _fu_err:
+    logging.warning(f"fast_upload module unavailable, upload speed boost disabled: {_fu_err}")
+    _FAST_UPLOAD_AVAILABLE = False
+
+
+async def download_video_fast(url, cmd, name, workers: int = 16, chunk_mb: int = 10):
+    """
+    Faster drop-in replacement for download_video().
+    Tries: (1) parallel byte-range download for direct file URLs,
+    (2) aria2c multi-connection direct fetch, (3) the existing
+    yt-dlp+aria2c pipeline boosted with extra fragment concurrency.
+    Always falls back to the original download_video() if anything fails.
+    """
+    if not _FAST_DOWNLOAD_AVAILABLE:
+        return await download_video(url, cmd, name)
+    try:
+        return await smart_download_video(
+            url, cmd, name,
+            workers=workers,
+            chunk_mb=chunk_mb,
+            fallback_download=download_video,
+        )
+    except Exception as e:
+        logging.warning(f"[download_video_fast] hyper-speed path failed ({e}); using original pipeline")
+        return await download_video(url, cmd, name)
+
+
+async def send_vid_fast(bot: Client, m: Message, cc, filename, thumb, name, prog, workers: int = 12):
+    """
+    Faster drop-in replacement for send_vid().
+    Tries a turbo multi-connection parallel upload first; on ANY failure
+    (different Pyrogram version/internal API, network hiccup, etc.) it
+    transparently falls back to the exact original send_vid() logic.
+    """
+    subprocess.run(
+        f'ffmpeg -i {shlex.quote(filename)} -ss 00:01:00 -vframes 1 {shlex.quote(filename + ".jpg")}',
+        shell=True
+    )
+    await prog.delete(True)
+    reply = await m.reply_text(f"**⥣ ᴜᴘʟᴏᴀᴅɪɴɢ (turbo) ...🤝** » `{name}`")
+
+    try:
+        if thumb == "no":
+            thumbnail = f"{filename}.jpg"
+        else:
+            thumbnail = thumb
+    except Exception as e:
+        await m.reply_text(str(e))
+        thumbnail = f"{filename}.jpg"
+
+    dur = int(duration(filename))
+    start_time = time.time()
+
+    if _FAST_UPLOAD_AVAILABLE:
+        try:
+            await turbo_send_video(
+                bot, m.chat.id, filename, cc, thumbnail, dur, 1280, 720,
+                workers=workers, progress=progress_bar, progress_args=(reply, start_time),
+            )
+            os.remove(filename)
+            if os.path.exists(f"{filename}.jpg"):
+                os.remove(f"{filename}.jpg")
+            await reply.delete(True)
+            return
+        except Exception as e:
+            logging.warning(f"[send_vid_fast] turbo upload failed, falling back to normal upload: {e}")
+
+    # ── Fallback: identical to the original send_vid() upload logic ──
+    try:
+        await m.reply_video(
+            filename, caption=cc, supports_streaming=True, height=720, width=1280,
+            thumb=thumbnail, duration=dur, progress=progress_bar, progress_args=(reply, start_time),
+        )
+    except Exception:
+        await m.reply_document(filename, caption=cc, progress=progress_bar, progress_args=(reply, start_time))
+    os.remove(filename)
+    if os.path.exists(f"{filename}.jpg"):
+        os.remove(f"{filename}.jpg")
+    await reply.delete(True)

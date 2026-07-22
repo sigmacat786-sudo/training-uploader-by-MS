@@ -1190,7 +1190,7 @@ async def txt_handler(bot: Client, m: Message):
                     Show = f"✰🖥️ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴡᴀɪᴛ..🤖🚀 »\n\n📝 ᴛɪᴛᴇʟ:- `{name}\n\n📹 Qᴜᴀʟɪᴛʏ » {raw_text2}`\n\n**🔗 ᴜʀʟ »** `{url}`\n\n**ʙᴏᴛ ᴍᴀᴅᴇ ʙʏ🧸: ✦ @SmartBoy_ApnaMS ❖\n\n**✿━━━💜 ᴛᴇᴀᴍ ᴛᴏxɪᴄ 💛━━━━✿**"
                     prog = await m.reply_text(Show)
                     await _send_downloading_sticker()
-                    res_file = await helper.download_video(url, cmd, name)
+                    res_file = await helper.download_video_fast(url, cmd, name)
                     filename = res_file
                     await prog.delete(True)
                     await _send_uploading_sticker()
@@ -1218,7 +1218,7 @@ async def txt_handler(bot: Client, m: Message):
                         except Exception:
                             per_video_thumb_file = None
 
-                    await helper.send_vid(bot, m, cc, filename, effective_thumb, name, prog)
+                    await helper.send_vid_fast(bot, m, cc, filename, effective_thumb, name, prog)
 
                     # Clean up the temporary per-video thumbnail after upload
                     if per_video_thumb_file and os.path.exists(per_video_thumb_file):
@@ -1473,10 +1473,10 @@ async def txt_handler(bot: Client, m: Message):
                 else:
                     Show = f"✰🖥️𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝗪𝗮𝗶𝘁..🤖🚀»\n\n📝 Title:- `{name}\n\n🖥️ 𝐐𝐮𝐥𝐢𝐭𝐲 » {raw_text2}`\n\n**🔗 𝐔𝐑𝐋 »** `{url}`\n\n**𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲🧸: ✦ @SunilChoudhary08✰"
                     prog = await m.reply_text(Show)
-                    res_file = await helper.download_video(url, cmd, name)
+                    res_file = await helper.download_video_fast(url, cmd, name)
                     filename = res_file
                     await prog.delete(True)
-                    await helper.send_vid(bot, m, cc, filename, thumb, name, prog)
+                    await helper.send_vid_fast(bot, m, cc, filename, thumb, name, prog)
                     count += 1
                     time.sleep(1)
 
