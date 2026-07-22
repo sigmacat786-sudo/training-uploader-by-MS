@@ -126,8 +126,8 @@ image_list = [
 # bot restarts and redeploys. Default URL is hardcoded as fallback.
 
 THUMB_CONFIG_FILE = "thumb_config.json"
-DEFAULT_THUMB_URL = "https://ibb.co/35PbbDFX"
-DEFAULT_THUMB_URL = "https://graph.org/file/43961a18cb08375a57113-9049653bd8fd8a2b6a.jpg"
+DEFAULT_THUMB_URL = " "
+DEFAULT_THUMB_URL = " "
 THUMB_PATH = "pdf_thumb_v2.jpg"
 THUMB_MAX_SIDE = 320
 THUMB_MAX_BYTES = 200 * 1024
@@ -341,7 +341,7 @@ async def main():
         
 class Data:
     START = (
-        "🌟 ᴡᴇʟᴄᴏᴍᴇ ʜᴀʙɪʙɪ🤭 {0}! 🌟\n\n"
+        "🌟 ᴡᴇʟᴄᴏᴍᴇ ʜᴀʙɪʙɪ😉 {0}! 🌟\n\n"
     )
 # Define the start command handler
 @bot.on_message(filters.command("start"))
@@ -398,7 +398,7 @@ async def start(client: Client, msg: Message):
     try:
         if msg.chat.id in auth_users:
             caption = (
-                f"⬩➤**👀ʜᴇʟʟᴏ ʜᴀʙɪʙɪ!**\n\n"
+                f"⬩➤**😎ʜᴇʟʟᴏ ʜᴀʙɪʙɪ!**\n\n"
                 f"⬩➤**ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴛʜᴇ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ꜱᴇʀᴠɪᴄᴇ!**\n\n"
                 f"⬩➤**ɪ'ᴍ ʀɪᴄʜ ᴜᴘʟᴏᴀᴅᴇʀ ʙᴏᴛ**\n\n"
                 f"⬩➤**ɪ ᴄᴀɴ ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏꜱ & ᴘᴅꜰꜱ ꜰʀᴏᴍ ʏᴏᴜʀ ᴛᴇxᴛ ꜰɪʟᴇ ᴀɴᴅ ꜱᴇɴᴅ ᴛʜᴇᴍ ᴛᴏ ʏᴏᴜ.**\n\n"
@@ -1112,7 +1112,7 @@ async def txt_handler(bot: Client, m: Message):
 
             try:  
                 
-                cc = f'**[{str(count).zfill(3)}.]📝Titel: {name1} {res}-MS Bro.mp4\n\n<pre><code>📷𝗬𝗢𝗨𝗧𝗨𝗕𝗘 𝗟𝗜𝗡𝗞: CLICK HERE AND WATCH </code></pre>\n\n<pre><code>❓𝗛𝗢𝗪 𝗧𝗢 𝗢𝗣𝗘𝗡 𝗟𝗜𝗡𝗞: [CLICK HERE](https://youtu.be/DOzTbH7IDeg?si=Ar08WhJFJHT2lP7P) </code></pre>\n\n📥 Upload By♠:\n{CR}**'
+                cc = f'**[{str(count).zfill(3)}.]📝Titel: {name1} {res}-MS Bro.mp4\n\n📥 Upload By♠:\n{CR}**'
                 cc1 = f'**[{str(count).zfill(3)}.]📝Titel: {name1}-MS BRO.pdf\n\n📥 Upload By♠:\n{CR}**'
                     
                 
