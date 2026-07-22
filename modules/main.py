@@ -126,7 +126,8 @@ image_list = [
 # bot restarts and redeploys. Default URL is hardcoded as fallback.
 
 THUMB_CONFIG_FILE = "thumb_config.json"
-_DEFAULT_THUMB_URL = ""
+DEFAULT_THUMB_URL = "https://ibb.co/35PbbDFX"
+DEFAULT_THUMB_URL = "https://graph.org/file/43961a18cb08375a57113-9049653bd8fd8a2b6a.jpg"
 THUMB_PATH = "pdf_thumb_v2.jpg"
 THUMB_MAX_SIDE = 320
 THUMB_MAX_BYTES = 200 * 1024
@@ -137,9 +138,9 @@ def _load_thumb_url() -> str:
     try:
         with open(THUMB_CONFIG_FILE, "r") as f:
             data = json.load(f)
-            return data.get("thumb_url") or _DEFAULT_THUMB_URL
+            return data.get("thumb_url") or DEFAULT_THUMB_URL
     except Exception:
-        return _DEFAULT_THUMB_URL
+        return DEFAULT_THUMB_URL
 
 
 def _save_thumb_url(url: str):
@@ -200,7 +201,7 @@ def ensure_thumbnail_exists(url: str = None, force: bool = False) -> str | None:
     Returns path to compliant JPEG or None on failure.
     """
     global _current_thumb_url
-    thumb_url = url or _current_thumb_url or _DEFAULT_THUMB_URL
+    thumb_url = url or _current_thumb_url or DEFAULT_THUMB_URL
 
     if os.path.exists(THUMB_PATH) and not force:
         try:
@@ -269,7 +270,7 @@ bot = Client(
     bot_token=BOT_TOKEN
 )
 
-my_name = "–MS BRO"
+my_name = "MS BRO"
 
 cookies_file_path = os.getenv("COOKIES_FILE_PATH", "/modules/youtube_cookies.txt")
 
@@ -340,7 +341,7 @@ async def main():
         
 class Data:
     START = (
-        "🌟 ᴡᴇʟᴄᴏᴍᴇ ʜᴀʙɪʙɪ🌚 {0}! 🌟\n\n"
+        "🌟 ᴡᴇʟᴄᴏᴍᴇ ʜᴀʙɪʙɪ🤭 {0}! 🌟\n\n"
     )
 # Define the start command handler
 @bot.on_message(filters.command("start"))
@@ -383,7 +384,7 @@ async def start(client: Client, msg: Message):
     await asyncio.sleep(1)
     await start_message.edit_text(
         Data.START.format(msg.from_user.mention) +
-        "ʙᴏᴛ ꜱᴛᴀʀᴛᴇᴅ ʜᴀʙɪʙɪ... ᴄᴏᴍᴍᴀɴᴅ ɪꜱ ᴘʀɪᴠᴀᴛᴇ ᴅᴇᴀʀ.🌚**ʙᴏᴛ ᴍᴀᴅᴇ ʙʏ @SmartBoy_ApnaMS**🔍\n\n"
+        "ʙᴏᴛ ꜱᴛᴀʀᴛᴇᴅ ʜᴀʙɪʙɪ... ᴄᴏᴍᴍᴀɴᴅ ɪꜱ ᴘʀɪᴠᴀᴛᴇ ᴅᴇᴀʀ😜.**ʙᴏᴛ ᴍᴀᴅᴇ ʙʏ @SmartBoy_ApnaMS**🔍\n\n"
         "ᴘʀᴏɢʀᴇꜱꜱ:[🟩🟩🟩🟩🟩🟩🟩🟩🟩] 100%\n\n"
     )
 
@@ -397,7 +398,7 @@ async def start(client: Client, msg: Message):
     try:
         if msg.chat.id in auth_users:
             caption = (
-                f"⬩➤**🌚 ʜᴇʟʟᴏ ʜᴀʙɪʙɪ!**\n\n"
+                f"⬩➤**👀ʜᴇʟʟᴏ ʜᴀʙɪʙɪ!**\n\n"
                 f"⬩➤**ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴛʜᴇ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ꜱᴇʀᴠɪᴄᴇ!**\n\n"
                 f"⬩➤**ɪ'ᴍ ʀɪᴄʜ ᴜᴘʟᴏᴀᴅᴇʀ ʙᴏᴛ**\n\n"
                 f"⬩➤**ɪ ᴄᴀɴ ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏꜱ & ᴘᴅꜰꜱ ꜰʀᴏᴍ ʏᴏᴜʀ ᴛᴇxᴛ ꜰɪʟᴇ ᴀɴᴅ ꜱᴇɴᴅ ᴛʜᴇᴍ ᴛᴏ ʏᴏᴜ.**\n\n"
@@ -407,7 +408,7 @@ async def start(client: Client, msg: Message):
             )
         else:
             caption = (
-                f"⬩➤**🥰ʜᴇʟʟᴏ** {msg.from_user.first_name} **ᴡᴇʟᴄᴏᴍᴇ ʜᴀʙɪʙɪ !**\n\n"
+                f"⬩➤**🤩ʜᴇʟʟᴏ** {msg.from_user.first_name} **ᴡᴇʟᴄᴏᴍᴇ ʜᴀʙɪʙɪ !**\n\n"
                 f"⬩➤**ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴛʜᴇ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ꜱᴇʀᴠɪᴄᴇ!**\n\n"
                 f"⬩➤**ɪ'ᴍ ʀɪᴄʜ ᴜᴘʟᴏᴀᴅᴇʀ ʙᴏᴛ\n\n"
                 f"⬩➤**ɪ ᴄᴀɴ ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏꜱ & ᴘᴅꜰꜱ ꜰʀᴏᴍ ʏᴏᴜʀ ᴛᴇxᴛ ꜰɪʟᴇ ᴀɴᴅ ꜱᴇɴᴅ ᴛʜᴇᴍ ᴛᴏ ʏᴏᴜ!**\n\n"
@@ -421,7 +422,7 @@ async def start(client: Client, msg: Message):
 
 @bot.on_message(filters.command(["stop"]) )
 async def restart_handler(_, m):
-    await m.reply_text("🌚**ꜱᴛᴏᴘᴘᴇᴅ**🌚", True)
+    await m.reply_text("🎃**ꜱᴛᴏᴘᴘᴇᴅ**🎃", True)
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -791,7 +792,7 @@ async def thumb_remove_confirm_callback(bot: Client, cq):
     global _current_thumb_url
     await cq.answer()
     _delete_thumb_url()
-    _current_thumb_url = _DEFAULT_THUMB_URL
+    _current_thumb_url = DEFAULT_THUMB_URL
     # Delete cached thumbnail file so it gets re-downloaded from default next time
     if os.path.exists(THUMB_PATH):
         try:
@@ -799,7 +800,7 @@ async def thumb_remove_confirm_callback(bot: Client, cq):
         except Exception:
             pass
     # Pre-load default thumbnail
-    ensure_thumbnail_exists(url=_DEFAULT_THUMB_URL, force=True)
+    ensure_thumbnail_exists(url=DEFAULT_THUMB_URL, force=True)
 
     await cq.message.edit_caption(
         caption=(
@@ -873,10 +874,10 @@ async def txt_handler(bot: Client, m: Message):
             f"ᴏᴏᴘꜱꜱ! ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴀ ᴘʀᴇᴍɪᴜᴍ ᴍᴇᴍʙᴇʀ.\n"
             f"ᴡᴀɴɴᴀ ᴛᴏ ᴜꜱᴇ ᴛʜɪꜱ? ᴄᴏɴᴛᴀᴄᴛ ᴏᴡɴᴇʀ ꜰɪʀꜱᴛ!\n\n"
             f"**ʏᴏᴜʀ ᴜꜱᴇʀ ɪᴅ:** `{m.chat.id}`</blockquote>\n\n"
-            f"👉 ᴄᴏɴᴛᴀᴄᴛ: @SmartBoy_ApnaMS"
+            f"👉 ᴄᴏɴᴛᴀᴄᴛ: @smartBoy_ApnaMS"
         )
     # ─────────────────────────────────────────────────────────────────────────
-    editable = await m.reply_text(f"**🔹✨ʜᴀʙɪʙɪ ɪ ᴀᴍ ᴘᴏᴡᴇꜰᴜʟ ꜰᴜʀʏ ᴛxᴛ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ʙᴏᴛ📥.**\n🔹**ꜱᴇɴᴅ ᴍᴇ ᴛʜᴇ ᴛxᴛ ꜰɪʟᴇ ᴀɴᴅ ᴊᴜꜱᴛ ᴡᴀɪᴛ ᴀɴᴅ ᴡᴀᴛᴄʜ😎.**")
+    editable = await m.reply_text(f"**🔹ʜᴀʙɪʙɪ ɪ ᴀᴍ ᴘᴏᴡᴇꜰᴜʟ ꜰᴜʀʏ ᴛxᴛ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ʙᴏᴛ📥.**\n🔹**ꜱᴇɴᴅ ᴍᴇ ᴛʜᴇ ᴛxᴛ ꜰɪʟᴇ ᴀɴᴅ ᴊᴜꜱᴛ ᴡᴀɪᴛ ᴀɴᴅ ᴡᴀᴛᴄʜ😎.**")
     input: Message = await bot.listen(editable.chat.id)
     x = await input.download()
     await input.delete(True)
@@ -923,7 +924,7 @@ async def txt_handler(bot: Client, m: Message):
         arg = 1
 
     # Step 2 — batch name
-    await _send_step_sticker_h("CAACAgUAAxkBAAFPD9FqVayJlUBXUOgsMnQRjIO4WafQMAAC_hEAAjxo-Va99hpseLpmQj0E")
+    await _send_step_sticker_h("CAACAgUAAxkBAAFMOndqK-IFC70-Oeo97HHD4Zm6iFoYnQAChg8AAv6cqVc2WKeTYejtVzwE")
     await editable.edit("**ᴇɴᴛᴇʀ ʏᴏᴜʀ ʙᴀᴛᴄʜ ɴᴀᴍᴇ ᴏʀ\n\nꜱᴇɴᴅ /UP ꜱᴏ ᴛʜᴀᴛ ɪ ᴡɪʟʟ ᴜꜱᴇ ʏᴏᴜʀ ᴀᴄᴛᴜᴀʟʟ ꜰɪʟᴇ ɴᴀᴍᴇ😉.**")
     input1: Message = await bot.listen(editable.chat.id)
     raw_text0 = input1.text
@@ -958,7 +959,7 @@ async def txt_handler(bot: Client, m: Message):
             res = "UN"
     
     # Step 4 — credit name
-    await _send_step_sticker_h("CAACAgQAAxkBAAKl1GpPIdBs5jAc2OxFtID5XbbOyxd8AALlEQACpiY5UVipBboHmw0fPAQ")
+    await _send_step_sticker_h("CAACAgIAAxkBAAFMOpNqK-OEEouY2T2dqp8VSY5sY6dduwACKxwAApgdcUrmLxAE_NhI1TwE")
     await editable.edit("**ᴇɴᴛᴇʀ ʏᴏᴜʀ ɴᴀᴍᴇ ᴏʀ\n\nꜱᴇɴᴅ /MS ꜰᴏʀ ᴜꜱɪɴɢ ᴍʏ ɴᴀᴍᴇ🌚.\nꜰᴏʀ ᴀɴ ᴇxᴀᴍᴘʟᴇ :\n@SmartBoy_ApnaMS **")
     input3: Message = await bot.listen(editable.chat.id)
     raw_text3 = input3.text
@@ -969,7 +970,7 @@ async def txt_handler(bot: Client, m: Message):
         CR = raw_text3
         
     # Step 5 — PW Token
-    await _send_step_sticker_h("CAACAgQAAxkBAAFPEAFqVa-7DV-ta7xtJyzNttGfT7LTFQACuRUAAuK0-FLYEwjcN9sUFz0E")
+    await _send_step_sticker_h("CAACAgUAAxkBAAFMOpVqK-OeK8CWnShSKaCRb3t66qzs-QACiyIAAr9AqFbycr6vwdJUgjwE")
     await editable.edit("**ᴇɴᴛᴇʀ ʏᴏᴜʀ ᴘᴡ ᴛᴏᴋᴇɴ ꜰᴏʀ 𝐌𝐏𝐃 𝐔𝐑𝐋 ᴏʀ\n\nꜱᴇɴᴅ /VIP ꜰᴏʀ ᴄᴏɴᴛɪɴᴜᴇ ᴡɪᴛʜᴏᴜᴛ ᴛᴏᴋᴇɴ🎀.**")
     input4: Message = await bot.listen(editable.chat.id)
     raw_text4 = input4.text
@@ -980,7 +981,7 @@ async def txt_handler(bot: Client, m: Message):
         MR = raw_text4
         
     # Step 6 — Thumb
-    await _send_step_sticker_h("CAACAgQAAxkBAAFPEApqVbAKAhZTk3etzq80A9F0Hu1JvQACZxUAAvLueVAlGyqUr3B0Pz0E")
+    await _send_step_sticker_h("CAACAgUAAxkBAAFMOqFqK-PIhePM-y_ZOMRtG9Ul-C0NbQACiB4AAid7sVaDpGzedWE0LzwE")
     await editable.edit("**ɴᴏᴡ ꜱᴇɴᴅ ᴛʜᴇ ᴛʜᴜᴍʙɴᴀɪʟ ᴜʀʟ ᴏʀ**\n\nꜱᴇɴᴅ `no` ꜰᴏʀ ᴡɪᴛʜᴏᴜᴛ ᴛʜɪꜱ\n\n⬩➤ꜰᴏʀ ᴀɴ ᴇxᴀᴍᴘʟᴇ\nʜᴛᴛᴘꜱ://ɢʀᴀᴘʜ.ᴏʀɢ/ꜰɪʟᴇxʏᴢ.ᴊᴘɢ")
     input6 = message = await bot.listen(editable.chat.id)
     raw_text6 = input6.text
@@ -1083,7 +1084,7 @@ async def txt_handler(bot: Client, m: Message):
              #id =  url.split("/")[-2]
              #url = f"https://anonymouspwplayerrr-31d6706c7a3b.herokuapp.com/pw?url={url}?token={raw_text4}"
             #url = f"https://madxapi-d0cbf6ac738c.herokuapp.com/{id}/master.m3u8?token={raw_text4}"
-            elif "master.mpd" in url or "sec1.pw.live" in url or "parentId" in url:
+            elif"master.mpd" in url or "sec1.pw.live" in url or "parentId" in url:
              url = f"{PWAPI1}?url={url}&token={raw_text4}"
                      
                                                          
@@ -1111,8 +1112,8 @@ async def txt_handler(bot: Client, m: Message):
 
             try:  
                 
-                cc = f'**[{str(count).zfill(3)}.]📝 Titel: {name1} {res}MS Bro.mp4\n\n\n📥 ᴜᴘʟᴏᴀᴅ ʙʏ♠:\n{CR}**'
-                cc1 = f'**[{str(count).zfill(3)}.]📝 Titel: {name1} MS Bro.pdf\n\n\n📥 ᴜᴘʟᴏᴀᴅ ʙʏ♠:\n{CR}**'
+                cc = f'**[{str(count).zfill(3)}.]📝Titel: {name1} {res}-MS Bro.mp4\n\n<pre><code>📷𝗬𝗢𝗨𝗧𝗨𝗕𝗘 𝗟𝗜𝗡𝗞: CLICK HERE AND WATCH </code></pre>\n\n<pre><code>❓𝗛𝗢𝗪 𝗧𝗢 𝗢𝗣𝗘𝗡 𝗟𝗜𝗡𝗞: [CLICK HERE](https://youtu.be/DOzTbH7IDeg?si=Ar08WhJFJHT2lP7P) </code></pre>\n\n📥 Upload By♠:\n{CR}**'
+                cc1 = f'**[{str(count).zfill(3)}.]📝Titel: {name1}-MS BRO.pdf\n\n📥 Upload By♠:\n{CR}**'
                     
                 
                 if "drive" in url:
@@ -1186,7 +1187,7 @@ async def txt_handler(bot: Client, m: Message):
                         continue                       
                           
                 else:
-                    Show = f"✰🖥️ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴡᴀɪᴛ..🤖🚀 »\n\n📝 ᴛɪᴛᴇʟ:- `{name}\n\n📹 Qᴜᴀʟɪᴛʏ » {raw_text2}`\n\n**🔗 ᴜʀʟ »** `{url}`\n\n**ʙᴏᴛ ᴍᴀᴅᴇ ʙʏ🧸: ✦ @SmartBoy_ApnaMS ❖\n\n**✿━━💎Qᴜᴀʟɪᴛʏ ᴇᴅᴜᴄᴀᴛɪᴏɴ💎━━━✿**"
+                    Show = f"✰🖥️ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴡᴀɪᴛ..🤖🚀 »\n\n📝 ᴛɪᴛᴇʟ:- `{name}\n\n📹 Qᴜᴀʟɪᴛʏ » {raw_text2}`\n\n**🔗 ᴜʀʟ »** `{url}`\n\n**ʙᴏᴛ ᴍᴀᴅᴇ ʙʏ🧸: ✦ @SmartBoy_ApnaMS ❖\n\n**✿━━━💜 ᴛᴇᴀᴍ ᴛᴏxɪᴄ 💛━━━━✿**"
                     prog = await m.reply_text(Show)
                     await _send_downloading_sticker()
                     res_file = await helper.download_video(url, cmd, name)
@@ -1205,7 +1206,10 @@ async def txt_handler(bot: Client, m: Message):
                     per_video_thumb_file = None
                     if thumb == "no" and per_video_thumb_url:
                         try:
-                            per_video_thumb_file = f"{name}_thumb.jpg"
+                            _thumb_url_clean = per_video_thumb_url.split("?")[0].split("#")[0]
+                            _thumb_ext_match = re.search(r"\.(jpg|jpeg|png)$", _thumb_url_clean, re.IGNORECASE)
+                            _thumb_ext = _thumb_ext_match.group(1).lower() if _thumb_ext_match else "jpg"
+                            per_video_thumb_file = f"{name}_thumb.{_thumb_ext}"
                             getstatusoutput(f"wget '{per_video_thumb_url}' -O '{per_video_thumb_file}'")
                             if os.path.exists(per_video_thumb_file) and os.path.getsize(per_video_thumb_file) > 0:
                                 effective_thumb = per_video_thumb_file
@@ -1244,7 +1248,7 @@ async def txt_handler(bot: Client, m: Message):
 
 # Advance
 
-@bot.on_message(filters.command(["notworking"]) )
+@bot.on_message(filters.command(["notworkingcommand"]) )
 async def txt_handler(bot: Client, m: Message):
     # ── Auth Check ────────────────────────────────────────────────────────────
     if m.chat.id not in auth_users:
@@ -1253,7 +1257,7 @@ async def txt_handler(bot: Client, m: Message):
             f"__Oopss! You are not a Premium member__\n"
             f"__Want to use this? Contact owner first!__\n\n"
             f"**Your User ID:** `{m.chat.id}`</blockquote>\n\n"
-            f"👉 Contact: @JapaneseFury"
+            f"👉 Contact: @SmartBoy_ApnaMS"
         )
     # ─────────────────────────────────────────────────────────────────────────
     editable = await m.reply_text(f"**🔹Hi I am Poweful Lovely TXT Downloader📥 Bot.**\n🔹**Send me the TXT file and Just wait and Watch🥵.**")
