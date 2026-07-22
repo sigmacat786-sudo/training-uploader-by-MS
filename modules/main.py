@@ -1112,8 +1112,8 @@ async def txt_handler(bot: Client, m: Message):
 
             try:  
                 
-                cc = f'**[{str(count).zfill(3)}.]📝Titel: {name1} {res}-MS Bro.mp4\n\n📥 Upload By♠:\n{CR}**'
-                cc1 = f'**[{str(count).zfill(3)}.]📝Titel: {name1}-MS BRO.pdf\n\n📥 Upload By♠:\n{CR}**'
+                cc = f'**[{str(count).zfill(3)}.]📝Titel: {name1} {res}-MS Bro.mp4\n\n<pre><code>📥 Upload By♠: </code></pre>\n{CR}**'
+                cc1 = f'**[{str(count).zfill(3)}.]📝Titel: {name1}-MS BRO.pdf\n\n<pre><code>📥 Upload By♠: </code></pre>\n{CR}**'
                     
                 
                 if "drive" in url:
