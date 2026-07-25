@@ -52,7 +52,7 @@ def _save_api(api1: str, api2: str):
         pass
 
 _saved_api1, _saved_api2 = _load_api()
-_default_api = "https://anonymouspwplayerrrr-c95d81521328.herokuapp.com/pw"
+_default_api = "https://anonymouspwplayeer-2038df9c1dbd.herokuapp.com/pw"
 PWAPI1 = _saved_api1 or os.environ.get("PWAPI1", _default_api)
 PWAPI2 = _saved_api2 or os.environ.get("PWAPI2", _default_api)
 # ─────────────────────────────────────────────────────────────────────────────
@@ -341,7 +341,7 @@ async def main():
         
 class Data:
     START = (
-        "🌟 ᴡᴇʟᴄᴏᴍᴇ ʜᴀʙɪʙɪ😉 {0}! 🌟\n\n"
+        "🌟 ᴡᴇʟᴄᴏᴍᴇ ʜᴀʙɪʙɪ🤓 {0}! 🌟\n\n"
     )
 # Define the start command handler
 @bot.on_message(filters.command("start"))
@@ -398,7 +398,7 @@ async def start(client: Client, msg: Message):
     try:
         if msg.chat.id in auth_users:
             caption = (
-                f"⬩➤**😎ʜᴇʟʟᴏ ʜᴀʙɪʙɪ!**\n\n"
+                f"⬩➤**❤️ʜᴇʟʟᴏ ʜᴀʙɪʙɪ!**\n\n"
                 f"⬩➤**ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴛʜᴇ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ꜱᴇʀᴠɪᴄᴇ!**\n\n"
                 f"⬩➤**ɪ'ᴍ ʀɪᴄʜ ᴜᴘʟᴏᴀᴅᴇʀ ʙᴏᴛ**\n\n"
                 f"⬩➤**ɪ ᴄᴀɴ ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏꜱ & ᴘᴅꜰꜱ ꜰʀᴏᴍ ʏᴏᴜʀ ᴛᴇxᴛ ꜰɪʟᴇ ᴀɴᴅ ꜱᴇɴᴅ ᴛʜᴇᴍ ᴛᴏ ʏᴏᴜ.**\n\n"
