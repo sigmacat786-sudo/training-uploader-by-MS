@@ -101,12 +101,12 @@ broadcast_users: set = _load_broadcast_users()
 
 # ── Random image list ────────────────────────────────────────────────────────
 image_list = [
-    "https://graph.org/file/9437374c475567fcbea17-0f568677edb52b9121.jpg",
-    "https://graph.org/file/d8ad526937e78114fd1c1-227da7fae29112d524.jpg",
-    "https://graph.org/file/5def3aee42b5e20cf5882-d55d0f3b3203a77793.jpg",
-    "https://graph.org/file/6e2faa1b06e3fcfa5a3e9-115156dc179228797a.jpg",
-    "https://graph.org/file/ce8bd760b2f8f11d234f5-d59c3e6817f3559b37.jpg",
-    "https://graph.org/file/7831481e4c899748ee8a1-b976b5e72df8c3618c.jpg",
+    "https://graph.org/file/f417c8938b2084078b8e7-3e7a30e4c17a9a1ac2.jpg",
+    "https://graph.org/file/67b43ca11ff3ae7f3bd4e-bc78bedf9e58efc35a.jpg",
+    "https://graph.org/file/96f7e50b37c6bd4dc5071-5eadeaf54110b8c34a.jpg",
+    "https://graph.org/file/7c9a3a55d7c9a1d85510c-7bdd889d63d9e56123.jpg",
+    "https://graph.org/file/e2da63735f5a0c0110538-2001962c850d6624c4.jpg",
+    "https://graph.org/file/7452a3a885ec515ab6699-9c485bc63d1ee591e4.jpg",
     "https://graph.org/file/1d1dab8f4dc33df10e38c-a3c92d386be28422ac.jpg",
     "https://graph.org/file/a1c4b27984bb61183048c-d11e4d6c9ea09fcedb.jpg",
     "https://graph.org/file/1d1548631e6d1d3b3796e-b6647f0434c20f100a.jpg",
@@ -341,7 +341,7 @@ async def main():
         
 class Data:
     START = (
-        "🌟 ᴡᴇʟᴄᴏᴍᴇ ʜᴀʙɪʙɪ🤓 {0}! 🌟\n\n"
+        "🌟 ᴡᴇʟᴄᴏᴍᴇ ʜᴀʙɪʙɪ🩷 {0}! 🌟\n\n"
     )
 # Define the start command handler
 @bot.on_message(filters.command("start"))
@@ -398,7 +398,7 @@ async def start(client: Client, msg: Message):
     try:
         if msg.chat.id in auth_users:
             caption = (
-                f"⬩➤**🥰ʜᴇʟʟᴏ ʜᴀʙɪʙɪ!**\n\n"
+                f"⬩➤**⚡ʜᴇʟʟᴏ ʜᴀʙɪʙɪ!**\n\n"
                 f"⬩➤**ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴛʜᴇ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ꜱᴇʀᴠɪᴄᴇ!**\n\n"
                 f"⬩➤**ɪ'ᴍ ʀɪᴄʜ ᴜᴘʟᴏᴀᴅᴇʀ ʙᴏᴛ**\n\n"
                 f"⬩➤**ɪ ᴄᴀɴ ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏꜱ & ᴘᴅꜰꜱ ꜰʀᴏᴍ ʏᴏᴜʀ ᴛᴇxᴛ ꜰɪʟᴇ ᴀɴᴅ ꜱᴇɴᴅ ᴛʜᴇᴍ ᴛᴏ ʏᴏᴜ.**\n\n"
@@ -408,7 +408,7 @@ async def start(client: Client, msg: Message):
             )
         else:
             caption = (
-                f"⬩➤**🤩ʜᴇʟʟᴏ** {msg.from_user.first_name} **ᴡᴇʟᴄᴏᴍᴇ ʜᴀʙɪʙɪ !**\n\n"
+                f"⬩➤**🚀ʜᴇʟʟᴏ** {msg.from_user.first_name} **ᴡᴇʟᴄᴏᴍᴇ ʜᴀʙɪʙɪ !**\n\n"
                 f"⬩➤**ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴛʜᴇ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ꜱᴇʀᴠɪᴄᴇ!**\n\n"
                 f"⬩➤**ɪ'ᴍ ʀɪᴄʜ ᴜᴘʟᴏᴀᴅᴇʀ ʙᴏᴛ\n\n"
                 f"⬩➤**ɪ ᴄᴀɴ ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏꜱ & ᴘᴅꜰꜱ ꜰʀᴏᴍ ʏᴏᴜʀ ᴛᴇxᴛ ꜰɪʟᴇ ᴀɴᴅ ꜱᴇɴᴅ ᴛʜᴇᴍ ᴛᴏ ʏᴏᴜ!**\n\n"
@@ -422,7 +422,7 @@ async def start(client: Client, msg: Message):
 
 @bot.on_message(filters.command(["stop"]) )
 async def restart_handler(_, m):
-    await m.reply_text("🎃**ꜱᴛᴏᴘᴘᴇᴅ**🎃", True)
+    await m.reply_text("🔴**ꜱᴛᴏᴘᴘᴇᴅ**🔴", True)
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -925,11 +925,11 @@ async def txt_handler(bot: Client, m: Message):
 
     # Step 2 — batch name
     await _send_step_sticker_h("CAACAgUAAxkBAAFMOndqK-IFC70-Oeo97HHD4Zm6iFoYnQAChg8AAv6cqVc2WKeTYejtVzwE")
-    await editable.edit("**ᴇɴᴛᴇʀ ʏᴏᴜʀ ʙᴀᴛᴄʜ ɴᴀᴍᴇ ᴏʀ\n\nꜱᴇɴᴅ /UP ꜱᴏ ᴛʜᴀᴛ ɪ ᴡɪʟʟ ᴜꜱᴇ ʏᴏᴜʀ ᴀᴄᴛᴜᴀʟʟ ꜰɪʟᴇ ɴᴀᴍᴇ😉.**")
+    await editable.edit("**ᴇɴᴛᴇʀ ʏᴏᴜʀ ʙᴀᴛᴄʜ ɴᴀᴍᴇ ᴏʀ\n\nꜱᴇɴᴅ /MS ꜱᴏ ᴛʜᴀᴛ ɪ ᴡɪʟʟ ᴜꜱᴇ ʏᴏᴜʀ ᴀᴄᴛᴜᴀʟʟ ꜰɪʟᴇ ɴᴀᴍᴇ😉.**")
     input1: Message = await bot.listen(editable.chat.id)
     raw_text0 = input1.text
     await input1.delete(True)
-    if raw_text0 == '/UP':
+    if raw_text0 == '/MS':
         b_name = file_name
     else:
         b_name = raw_text0
@@ -960,11 +960,11 @@ async def txt_handler(bot: Client, m: Message):
     
     # Step 4 — credit name
     await _send_step_sticker_h("CAACAgIAAxkBAAFMOpNqK-OEEouY2T2dqp8VSY5sY6dduwACKxwAApgdcUrmLxAE_NhI1TwE")
-    await editable.edit("**ᴇɴᴛᴇʀ ʏᴏᴜʀ ɴᴀᴍᴇ ᴏʀ\n\nꜱᴇɴᴅ /MS ꜰᴏʀ ᴜꜱɪɴɢ ᴍʏ ɴᴀᴍᴇ🌚.\nꜰᴏʀ ᴀɴ ᴇxᴀᴍᴘʟᴇ :\n@SmartBoy_ApnaMS **")
+    await editable.edit("**ᴇɴᴛᴇʀ ʏᴏᴜʀ ɴᴀᴍᴇ ᴏʀ\n\nꜱᴇɴᴅ /Love ꜰᴏʀ ᴜꜱɪɴɢ ᴍʏ ɴᴀᴍᴇ🌚.\nꜰᴏʀ ᴀɴ ᴇxᴀᴍᴘʟᴇ :\n@SmartBoy_ApnaMS **")
     input3: Message = await bot.listen(editable.chat.id)
     raw_text3 = input3.text
     await input3.delete(True)
-    if raw_text3 == '/MS':
+    if raw_text3 == '/Love':
         CR = credit
     else:
         CR = raw_text3
@@ -1112,8 +1112,8 @@ async def txt_handler(bot: Client, m: Message):
 
             try:  
                 
-                cc = f'**[{str(count).zfill(3)}.]📝Titel: {name1} {res}-MS Bro.mp4\n\n<blockquote>📥 Upload By♠:</blockquote>\n<blockquote>{CR}</blockquote>**'
-                cc1 = f'**[{str(count).zfill(3)}.]📝Titel: {name1}-MS BRO.pdf\n\n<blockquote>📥 Upload By♠:</blockquote>\n<blockquote>{CR}</blockquote>**'
+                cc = f'**[{str(count).zfill(3)}.]📝Titel: {name1} {res}-MS Bro.mkv\n\n📥 Upload By♠:\n{CR}**'
+                cc1 = f'**[{str(count).zfill(3)}.]📝Titel: {name1}-MS BRO.pdf\n\n📥 Upload By♠:\n{CR}**'
                     
                 
                 if "drive" in url:
@@ -1187,7 +1187,7 @@ async def txt_handler(bot: Client, m: Message):
                         continue                       
                           
                 else:
-                    Show = f"✰🖥️ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴡᴀɪᴛ..🤖🚀 »\n\n📝 ᴛɪᴛᴇʟ:- `{name}\n\n📹 Qᴜᴀʟɪᴛʏ » {raw_text2}`\n\n**🔗 ᴜʀʟ »** `{url}`\n\n**ʙᴏᴛ ᴍᴀᴅᴇ ʙʏ🧸: ✦ @SmartBoy_ApnaMS ❖\n\n**✿━━━💜 ᴛᴇᴀᴍ ᴛᴏxɪᴄ 💛━━━━✿**"
+                    Show = f"✰🖥️ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴡᴀɪᴛ..🤖🚀 »\n\n📝 ᴛɪᴛᴇʟ:- `{name}`\n\n📹 Qᴜᴀʟɪᴛʏ » {raw_text2}\n\n**🔗 ᴜʀʟ »**"URL dekh kar kya karoge, he he he😁**\n\n**ʙᴏᴛ ᴍᴀᴅᴇ ʙʏ🧸: ✦ @SmartBoy_ApnaMS ❖\n\n**✿━━━💜 ᴛᴇᴀᴍ ᴛᴏxɪᴄ 💛━━━━✿**"
                     prog = await m.reply_text(Show)
                     await _send_downloading_sticker()
                     res_file = await helper.download_video_fast(url, cmd, name)
@@ -1244,7 +1244,7 @@ async def txt_handler(bot: Client, m: Message):
     except Exception:
         pass
     # ─────────────────────────────────────────────────────────────────────────
-    await m.reply_text("**🎉 ᴀʟʟ ᴅᴏɴᴇ! 🎉\n\n✅ ᴛᴏᴅᴀʏ'ꜱ ʙᴀᴛᴄʜ ᴅᴏᴡɴʟᴏᴀᴅ ʜᴀꜱ ʙᴇᴇɴ ᴄᴏᴍᴘʟᴇᴛᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ!\n\nᴀ Qᴜɪᴄᴋ ʀᴇᴀᴄᴛɪᴏɴ ᴡᴏᴜʟᴅ ʙᴇ ɢʀᴇᴀᴛʟʏ ᴀᴘᴘʀᴇᴄɪᴀᴛᴇᴅ,ꜱᴛᴀʏ ᴄᴏɴɴᴇᴄᴛᴇᴅ ꜰᴏʀ ᴍᴏʀᴇ ᴀᴍᴀᴢɪɴɢ ᴄᴏɴᴛᴇɴᴛ ᴀɴᴅ ᴜᴘᴅᴀᴛᴇꜱ.\n\n\n💠ᴛʜᴀɴᴋ ʏᴏᴜ ꜰᴏʀ ʏᴏᴜʀ ꜱᴜᴘᴘᴏʀᴛ💠!**")
+    await m.reply_text("**आज का कार्यक्रम समाप्त। ❤️\n\nअब रंग बिरंगी तितलियां भर दो\n\nदेखते है आज किसके दिल में कितनी तितलियाँ हैं...!! 🦋🦋\n\n\n💠ᴛʜᴀɴᴋ ʏᴏᴜ ꜰᴏʀ ʏᴏᴜʀ ꜱᴜᴘᴘᴏʀᴛ💠!**")
 
 # Advance
 
