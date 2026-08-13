@@ -1187,7 +1187,7 @@ async def txt_handler(bot: Client, m: Message):
                         continue                       
                           
                 else:
-                    Show = f"✰🖥️ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴡᴀɪᴛ..🤖🚀 »\n\n📝 ᴛɪᴛᴇʟ:- `{name}`\n\n📹 Qᴜᴀʟɪᴛʏ » {raw_text2}\n\n**🔗 ᴜʀʟ »**"URL dekh kar kya karoge, he he he😁**\n\n**ʙᴏᴛ ᴍᴀᴅᴇ ʙʏ🧸: ✦ @SmartBoy_ApnaMS ❖\n\n**✿━━━💜 ᴛᴇᴀᴍ ᴛᴏxɪᴄ 💛━━━━✿**"
+                    Show = f"✰🖥️ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴡᴀɪᴛ..🤖🚀 »\n\n📝 ᴛɪᴛᴇʟ:- `{name}`\n\n📹 Qᴜᴀʟɪᴛʏ » {raw_text2}\n\n**🔗 ᴜʀʟ »**URL dekh kar kya karoge, he he he😁**\n\n**ʙᴏᴛ ᴍᴀᴅᴇ ʙʏ🧸: ✦ @SmartBoy_ApnaMS ❖\n\n**✿━━━💜 ᴛᴇᴀᴍ ᴛᴏxɪᴄ 💛━━━━✿**"
                     prog = await m.reply_text(Show)
                     await _send_downloading_sticker()
                     res_file = await helper.download_video_fast(url, cmd, name)
